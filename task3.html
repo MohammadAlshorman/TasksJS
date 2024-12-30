@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إيجاد مؤشر العناصر في المصفوفة</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f8ff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2d3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TASK 2</h1>
+        <h1>🔍 إيجاد مؤشر العناصر في المصفوفة</h1>
+
+        <!-- إدخال المصفوفة -->
+        <p>أدخل العناصر في المصفوفة (مفصولة بفواصل):</p>
+        <input type="text" id="arrayInput" placeholder="مثال: Tomato,Banana,Watermelon">
+
+        <!-- إدخال العنصر للبحث عنه -->
+        <p>أدخل العنصر الذي ترغب في معرفة مؤشره:</p>
+        <input type="text" id="elementInput" placeholder="مثال: Banana">
+
+        <!-- زر تنفيذ العملية -->
+        <button id="findIndicesBtn">🔍 إيجاد مؤشر العنصر</button>
+
+        <!-- عرض النتيجة -->
+        <div id="result"></div>
+
+
+    </div>
+
+    <script>
+        document.getElementById('findIndicesBtn').addEventListener('click', function () {
+            // الحصول على المصفوفة المدخلة
+            let arrayInput = document.getElementById('arrayInput').value;
+            let element = document.getElementById('elementInput').value;
+
+            // تحويل المدخل إلى مصفوفة باستخدام الفواصل
+            let array = arrayInput.split(',').map(item => item.trim());
+
+            // إيجاد مؤشر العنصر
+            let index = array.indexOf(element);
+
+            // التحقق من وجود العنصر في المصفوفة
+            if (index === -1) {
+                document.getElementById('result').textContent = `⚠️ العنصر "${element}" غير موجود في المصفوفة.`;
+            } else {
+                document.getElementById('result').textContent = `مؤشر العنصر "${element}": ${index}`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

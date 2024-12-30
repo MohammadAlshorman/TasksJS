@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة عرض النمط</title>
+    <style>
+        /* === CSS الأساسي لتصميم الصفحة === */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #FF7900;
+
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #patternOutput {
+            text-align: left;
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #f4f4f4;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1> TASK 11</h1>
+        <h1>🎯 أداة لطباعة نمط الأرقام</h1>
+        <p>اضغط على الزر أدناه لطباعة النمط.</p>
+        <button id="printPatternBtn">🖨️ طباعة النمط</button>
+        <div id="patternOutput"></div>
+
+    </div>
+
+    <script>
+        // === JavaScript لطباعة النمط ===
+        document.getElementById('printPatternBtn').addEventListener('click', function () {
+            let output = '';
+            for (let i = 1; i <= 8; i++) {
+                for (let j = 1; j <= i; j++) {
+                    output += j + ' ';
+                }
+                output += '\n';
+            }
+            document.getElementById('patternOutput').textContent = output;
+        });
+    </script>
+
+</body>
+
+</html>

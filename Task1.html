@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الزكاة</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #34495E;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #BDC3C7;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #27AE60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2ECC71;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #16A085;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #BDC3C7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>حاسبة الزكاة</h1>
+
+        <label for="amount">أدخل المبلغ الذي تملكه (بالدينار)</label>
+        <input type="number" id="amount" placeholder="مثال: 4000" required>
+
+        <button onclick="calculateZakat()">احسب الزكاة</button>
+
+        <div id="result" class="result"></div>
+
+
+    </div>
+
+    <script>
+        function calculateZakat() {
+            var amount = parseFloat(document.getElementById('amount').value);
+            var zakatAmount;
+
+            // تحقق من أن المبلغ أكبر من أو يساوي 4000 دينار
+            if (amount >= 4000) {
+                zakatAmount = (amount * 2.5) / 100; // حساب الزكاة (2.5% من المبلغ)
+                document.getElementById('result').innerHTML = "الزكاة المطلوبة: " + zakatAmount.toFixed(2) + " دينار";
+            } else {
+                document.getElementById('result').innerHTML = "المبلغ أقل من النصاب، لا حاجة لدفع الزكاة.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

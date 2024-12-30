@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقييم الدرجات</title>
+    <style>
+        /* === CSS الأساسي لتصميم الصفحة === */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #FF7900;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1> TASK 10</h1>
+        <h1>🎓 تقييم الدرجات</h1>
+
+        <p>أدخل درجتك لمعرفة التقييم:</p>
+        <input type="number" id="scoreInput" placeholder="أدخل درجتك (0-100)">
+        <button id="checkGradeBtn">🔍 عرض التقييم</button>
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+        // === JavaScript لتقييم الدرجة ===
+        document.getElementById('checkGradeBtn').addEventListener('click', function () {
+            let score = parseInt(document.getElementById('scoreInput').value);
+            let grade;
+
+            if (isNaN(score) || score < 0 || score > 100) {
+                grade = '⚠️ الرجاء إدخال درجة صحيحة بين 0 و 100';
+            } else if (score < 50) {
+                grade = '❌ الرسوب (Fail)';
+            } else if (score >= 50 && score <= 59) {
+                grade = '🟡 التقدير: E';
+            } else if (score >= 60 && score <= 69) {
+                grade = '🟠 التقدير: D';
+            } else if (score >= 70 && score <= 79) {
+                grade = '🟢 التقدير: C';
+            } else if (score >= 80 && score <= 89) {
+                grade = '🔵 التقدير: B';
+            } else if (score >= 90 && score <= 100) {
+                grade = '🟣 التقدير: A';
+            }
+
+            document.getElementById('result').textContent = grade;
+        });
+    </script>
+
+</body>
+
+</html>

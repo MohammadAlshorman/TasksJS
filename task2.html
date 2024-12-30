@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Syntax Error Fixer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 30px;
+            padding: 15px;
+            background: #eaf4e2;
+            border-radius: 8px;
+            border: 1px solid #d3e7cd;
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔧 Array Syntax Error Fixer</h1>
+
+        <p>The following arrays contain syntax errors:</p>
+        
+        <code>[ 1,7  9  45, ]</code>
+        <code>["Str" "alex","moh"]</code>
+        <code>'the','fox' 'over' lazy, 'dog',</code>
+
+        <button id="fixArraysBtn">🔍 Fix Errors</button>
+
+        <div id="result"></div>
+
+    
+    </div>
+
+    <script>
+        document.getElementById('fixArraysBtn').addEventListener('click', function() {
+            // Arrays with errors
+            let array1 = [1, 7, 9, 45];
+            let array2 = ["Str", "alex", "moh"];
+            let array3 = ['the', 'fox', 'over', 'lazy', 'dog'];
+
+            // Display the result after fixing the errors
+            document.getElementById('result').textContent = `
+                Array 1 (Fixed): [${array1.join(", ")}]
+                Array 2 (Fixed): [${array2.join(", ")}]
+                Array 3 (Fixed): [${array3.join(", ")}]
+            `;
+        });
+    </script>
+
+</body>
+</html>

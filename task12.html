@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب الـ Factorial</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f8ff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2d3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🔢 حساب الـ Factorial</h1>
+
+        <!-- إدخال الرقم -->
+        <p>أدخل رقمًا لحساب الـ Factorial:</p>
+        <input type="number" id="numberInput" placeholder="مثال: 5" min="0">
+
+        <!-- زر تنفيذ العملية -->
+        <button id="calculateBtn">🔄 حساب الـ Factorial</button>
+
+        <!-- عرض النتيجة -->
+        <div id="result"></div>
+
+
+    </div>
+
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', function () {
+            // الحصول على الرقم المدخل
+            let num = parseInt(document.getElementById('numberInput').value);
+
+            // التحقق من أن الرقم المدخل صحيح
+            if (isNaN(num) || num < 0) {
+                document.getElementById('result').textContent = '⚠️ الرجاء إدخال رقم صحيح أكبر من أو يساوي 0.';
+                return;
+            }
+
+            // دالة لحساب الـ Factorial
+            let factorial = (n) => {
+                if (n === 0 || n === 1) {
+                    return 1;
+                }
+                return n * factorial(n - 1);
+            };
+
+            // حساب النتيجة وعرضها
+            let result = factorial(num);
+            document.getElementById('result').textContent = `الـ Factorial للعدد ${num} هو: ${result}`;
+        });
+    </script>
+
+</body>
+
+</html>

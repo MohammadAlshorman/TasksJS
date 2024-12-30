@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرز المصفوفة</title>
+    <style>
+        /* === CSS الأساسي لتصميم الصفحة === */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #FF7900;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #arrayInput {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TASK 9</h1>
+        <h1>📊 فرز المصفوفة</h1>
+
+        <p>أدخل عناصر المصفوفة مفصولة بفواصل:</p>
+        <input type="text" id="arrayInput" placeholder="-3,8,7,6,5,-4,3,2,1">
+        <button id="sortArrayBtn">🔄 فرز المصفوفة</button>
+        <div id="result"></div>
+        <footer>© 2024 جميع الحقوق محفوظة.</footer>
+    </div>
+
+    <script>
+        // === JavaScript لفرز المصفوفة ===
+        document.getElementById('sortArrayBtn').addEventListener('click', function () {
+            let input = document.getElementById('arrayInput').value;
+            let arr = input.split(',').map(Number); // تحويل النص إلى أرقام
+
+            if (arr.some(isNaN)) {
+                document.getElementById('result').textContent = '⚠️ الرجاء إدخال أرقام مفصولة بفواصل فقط.';
+                return;
+            }
+
+            arr.sort((a, b) => a - b); // فرز تصاعدي
+
+            document.getElementById('result').textContent = '📌 المصفوفة بعد الفرز: ' + arr.join(', ');
+        });
+    </script>
+
+</body>
+
+</html>
