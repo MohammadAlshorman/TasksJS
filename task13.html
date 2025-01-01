@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #FF7900;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .toolbar {
+            margin: 10px 0;
+        }
+
+        .toolbar select,
+        .toolbar button,
+        .toolbar input {
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        #editor {
+            width: 80%;
+            height: 400px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            overflow: auto;
+            background: #fff;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        #div1 {
+            margin: 30px;
+            background-color: #FF7900;
+            color: #fff;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+            padding: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Text Editor Orange</h1>
+
+    </header>
+    <div id="div1" onmouseover="hover()" onmouseout="out()" class="div1">
+        Hello world !
+    </div>
+    <div class="toolbar">
+        <select onchange="formatText('fontName', this.value)">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Tahoma">Tahoma</option>
+        </select>
+        <select onchange="setFontSize(this.value)">
+            <option value="12px">12px</option>
+            <option value="14px">14px</option>
+            <option value="16px">16px</option>
+            <option value="18px">18px</option>
+            <option value="24px">24px</option>
+            <option value="32px">32px</option>
+        </select>
+        <input type="color" onchange="setFontColor(this.value)" title="Text Color">
+        <button onclick="formatText('bold')">Bold</button>
+        <button onclick="formatText('italic')">Italic</button>
+        <button onclick="formatText('underline')">Underline</button>
+        <button onclick="formatText('justifyLeft')">Left</button>
+        <button onclick="formatText('justifyCenter')">Center</button>
+        <button onclick="formatText('justifyRight')">Right</button>
+    </div>
+    <div id="editor" contenteditable="true">Mohammad Al-shorman</div>
+
+    <script>
+        function formatText(command, value = null) {
+            document.execCommand(command, false, value);
+        }
+        function setFontSize(size) {
+            document.execCommand('fontSize', false, '7');
+            let fontElements = document.querySelectorAll('#editor font[size="7"]');
+            fontElements.forEach(element => {
+                element.removeAttribute('size');
+                element.style.fontSize = size;
+            });
+        }
+        function setFontColor(color) {
+            document.execCommand('foreColor', false, color);
+        }
+    </script>
+
+
+    <script>
+        function hover() {
+            var hover = document.getElementById('div1');
+            hover.innerHTML = "Can i help ypu ? ";
+        }
+        function out() {
+            var out = document.getElementById('div1');
+            out.innerHTML = " Hello world !";
+        }
+
+    </script>
+</body>
+
+</html>
